@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Method — Why a Face is Not an Image | Twisted Portrait</title>
+  <meta name="description" content="The neuroscience of face perception and why oil caricature operates in a domain that AI cannot reach. An essay by Tony Parsons on prosopagnosia, the fusiform face area, and the science behind twenty years of caricature practice.">
+  <meta name="keywords" content="oil caricature neuroscience, fusiform face area caricature, prosopagnosia art, why caricature works brain, AI cannot replace caricature, face perception oil painting, caricature psychology, Tony Parsons caricature method">
+  <link rel="canonical" href="https://www.twistedportrait.co.uk/method.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.twistedportrait.co.uk/method.html">
+  <meta property="og:title" content="Why a Face is Not an Image — The Method | Twisted Portrait">
+  <meta property="og:description" content="The neuroscience of face perception and why oil caricature operates in a domain that AI cannot reach. On prosopagnosia, the fusiform face area, and 20,000 hours of practice.">
+  <meta property="og:image" content="https://www.twistedportrait.co.uk/images/og-image.jpg">
+  <meta property="og:site_name" content="Twisted Portrait">
+
+  <meta name="author" content="Tony Parsons">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why a Face is Not an Image — The Method",
+    "description": "An essay on the neuroscience of face perception, prosopagnosia, the fusiform face area, and why oil caricature operates in a domain that AI image generation cannot reach.",
+    "author": {
+      "@type": "Person",
+      "name": "Tony Parsons",
+      "url": "https://www.twistedportrait.co.uk"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Twisted Portrait",
+      "url": "https://www.twistedportrait.co.uk"
+    },
+    "url": "https://www.twistedportrait.co.uk/method.html",
+    "about": [
+      { "@type": "Thing", "name": "Fusiform face area" },
+      { "@type": "Thing", "name": "Prosopagnosia" },
+      { "@type": "Thing", "name": "Face perception" },
+      { "@type": "Thing", "name": "Caricature" },
+      { "@type": "Thing", "name": "Oil painting" }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+SC:wght@300;400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink:        #0e0c0a;
+      --varnish:    #1a1610;
+      --warm-dark:  #231f1a;
+      --rule:       #4a3f32;
+      --cream:      #e8dfc8;
+      --parchment:  #d4c9a8;
+      --gold:       #b8922a;
+      --gold-pale:  #c9a84c;
+      --text:       #cfc5aa;
+      --text-dim:   #8a7d68;
+      --white:      #f2ece0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      font-size: 19px;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.35;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      background: linear-gradient(to bottom, rgba(14,12,10,0.97) 0%, transparent 100%);
+    }
+
+    nav .wordmark {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    nav ul { list-style: none; display: flex; gap: 2.5rem; }
+
+    nav ul a {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav ul a:hover,
+    nav ul a.active { color: var(--cream); }
+
+    /* ── HERO MASTHEAD ── */
+    .masthead {
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 10rem 0 5rem;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .masthead::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 50%, rgba(184,146,42,0.04) 0%, transparent 60%),
+        linear-gradient(to bottom, var(--varnish) 0%, var(--ink) 100%);
+    }
+
+    .masthead .container { position: relative; }
+
+    .masthead-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.2s forwards;
+    }
+
+    .masthead-label::before {
+      content: '';
+      width: 2.5rem;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .masthead h1 {
+      font-family: 'IM Fell English', serif;
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--white);
+      max-width: 18ch;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.4s forwards;
+    }
+
+    .masthead h1 em {
+      font-style: italic;
+      color: var(--parchment);
+      display: block;
+    }
+
+    .masthead-standfirst {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--text);
+      max-width: 58ch;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.6s forwards;
+    }
+
+    /* ── ESSAY LAYOUT ── */
+    .essay {
+      display: grid;
+      grid-template-columns: 1fr min(65ch, 100%) 1fr;
+      padding: 6rem 0 8rem;
+    }
+
+    .essay > * { grid-column: 2; }
+
+    .essay-section {
+      margin-bottom: 4rem;
+    }
+
+    .essay-section h2 {
+      font-family: 'IM Fell English', serif;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1.75rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .essay-section h2 em { font-style: italic; }
+
+    .essay-section p {
+      font-size: 1.05rem;
+      line-height: 2;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .essay-section p:last-child { margin-bottom: 0; }
+
+    .essay-section p strong {
+      color: var(--parchment);
+      font-weight: 500;
+    }
+
+    /* Drop cap for opening paragraph */
+    .essay-opening::first-letter {
+      font-family: 'IM Fell English', serif;
+      font-size: 4.5rem;
+      font-weight: 400;
+      line-height: 0.8;
+      float: left;
+      margin-right: 0.1em;
+      margin-top: 0.12em;
+      color: var(--gold);
+    }
+
+    /* ── PULLQUOTE ── */
+    .pullquote {
+      grid-column: 1 / -1;
+      padding: 4rem 6rem;
+      margin: 2rem 0;
+      background: var(--warm-dark);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .pullquote p {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+      line-height: 1.5;
+      color: var(--parchment);
+      max-width: 52ch;
+      margin: 0 auto;
+    }
+
+    /* ── ASIDE / ANNOTATION ── */
+    .essay-aside {
+      grid-column: 2;
+      border-left: 2px solid var(--gold);
+      padding: 1rem 0 1rem 2rem;
+      margin: 2rem 0;
+    }
+
+    .essay-aside p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--parchment);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ── TERM DEFINITION ── */
+    .term {
+      color: var(--gold-pale);
+      font-style: italic;
+    }
+
+    /* ── PORTRAIT IMAGE ── */
+    .essay-image {
+      grid-column: 2;
+      margin: 3rem 0;
+    }
+
+    .essay-image img {
+      width: 100%;
+      display: block;
+      filter: brightness(0.9) contrast(1.05);
+    }
+
+    .essay-image figcaption {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-top: 0.75rem;
+    }
+
+    /* ── CLOSING CTA ── */
+    .essay-cta {
+      grid-column: 2;
+      border-top: 1px solid var(--rule);
+      padding-top: 3rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .essay-cta p {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--parchment);
+      margin-bottom: 2rem;
+    }
+
+    .cta-link {
+      display: inline-block;
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--gold);
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      transition: background 0.3s;
+      margin: 0 0.5rem;
+    }
+
+    .cta-link:hover { background: var(--gold-pale); }
+
+    .cta-link.secondary {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--rule);
+    }
+
+    .cta-link.secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold-pale);
+    }
+
+    /* ── PROGRESS BAR ── */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: var(--gold);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--varnish);
+      border-top: 1px solid var(--rule);
+      padding: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer .wordmark {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+    }
+
+    footer p {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    footer a {
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover { color: var(--cream); }
+
+    /* ── CONTAINER ── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(1.5rem); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(1.5rem);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 800px) {
+      nav { padding: 1.25rem 1.5rem; }
+      nav ul { gap: 1.5rem; }
+
+      .essay {
+        grid-template-columns: 1fr;
+        padding: 4rem 1.5rem 6rem;
+      }
+
+      .essay > * { grid-column: 1; }
+      .pullquote { padding: 3rem 1.5rem; grid-column: 1; }
+
+      .masthead { padding: 8rem 0 3rem; }
+
+      .container { padding: 0 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="reading-progress" id="progress"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="wordmark">Twisted Portrait</a>
+    <ul>
+      <li><a href="/#works">Works</a></li>
+      <li><a href="/method.html" class="active">The Method</a></li>
+      <li><a href="/#commissions">Commissions</a></li>
+    </ul>
+  </nav>
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="container">
+      <p class="masthead-label">The Method</p>
+      <h1>Why a face<br>is not<br><em>an image</em></h1>
+      <p class="masthead-standfirst">
+        The neuroscience of face perception — and why oil caricature 
+        operates in a domain that image generation cannot reach.
+      </p>
+    </div>
+  </header>
+
+  <!-- ESSAY -->
+  <article class="essay">
+
+    <div class="essay-section reveal">
+      <h2>The dedicated machinery</h2>
+      <p class="essay-opening">
+        Most pictures, your brain processes in one way. A landscape. A chair. 
+        A dog. These are handled by the visual cortex as a general-purpose 
+        object recognition problem — features are extracted, compared against 
+        memory, a match is found. Efficient. Functional. Largely unconscious.
+      </p>
+      <p>Faces are different.</p>
+      <p>
+        Your brain has dedicated neural architecture — the 
+        <span class="term">fusiform face area</span>, located in the temporal 
+        lobe — that does nothing else but process human faces. Not objects that 
+        resemble faces. Not caricatures of animals. Human faces. This region is 
+        so specialised that when it is damaged, the result is a condition called 
+        <span class="term">prosopagnosia</span>: the complete inability to 
+        recognise faces, even of people known for an entire lifetime, while all 
+        other vision remains entirely intact.
+      </p>
+      <p>
+        The deficit is categorical. Selective. Faces only.
+      </p>
+    </div>
+
+    <div class="pullquote reveal">
+      <p>
+        The brain does not treat faces as images. It treats them as a separate 
+        category of perception, governed by different rules, processed by 
+        different machinery. A face is not seen — it is <em>identified</em>.
+      </p>
+    </div>
+
+    <div class="essay-section reveal">
+      <h2>What a caricature artist <em>actually</em> does</h2>
+      <p>
+        A photograph captures light reflected from a surface. It is accurate 
+        in the way a recording is accurate — it contains everything, weighted 
+        equally.
+      </p>
+      <p>
+        The brain does not weight everything equally. When you recognise a face, 
+        you are not performing a pixel-by-pixel comparison. You are responding 
+        to a small number of <strong>salient features</strong> — the specific 
+        proportions, the relationships between landmarks, the qualities that are 
+        unique to that face and deviate meaningfully from an average. Your 
+        fusiform face area has already decided which features matter. Everything 
+        else is background.
+      </p>
+      <p>
+        A skilled caricature artist finds those features. Not by guessing, and 
+        not by formula — by looking, long and carefully, at a specific face until 
+        the signal becomes clear. What is large relative to the norm? What 
+        proportion is unusual? What is the relationship between the eyes and the 
+        nose that makes this face <em>this face</em> and not any other?
+      </p>
+      <p>
+        Then those features are amplified, in oil paint, onto canvas.
+      </p>
+    </div>
+
+    <div class="essay-aside reveal">
+      <p>
+        I have been doing this for over twenty years. I estimate roughly 
+        twenty thousand hours spent looking at faces with the specific intention 
+        of understanding what makes each one unique. You cannot buy that 
+        with a subscription.
+      </p>
+    </div>
+
+    <div class="essay-section reveal">
+      <p>
+        The result is something physiologically unusual: an image that the 
+        brain's face-recognition system finds <em>easier</em> to process than 
+        a photograph. The signal has been cleaned of noise. The identifying 
+        information has been amplified. People who see a good caricature of 
+        someone they know often report that it is more recognisable, more 
+        <em>present</em>, than a photograph. This is not whimsy. It is a direct 
+        consequence of how face perception works.
+      </p>
+      <p>
+        It also explains why a poor caricature feels so wrong. If the wrong 
+        features are exaggerated — or if features are exaggerated beyond the 
+        threshold at which the face-recognition system can still resolve them — 
+        the result registers as grotesque rather than true. The line between a 
+        caricature that captures someone and one that merely insults them is 
+        exactly the line between working with the perceptual system and working 
+        against it. Finding that line is what the twenty thousand hours is for.
+      </p>
+    </div>
+
+    <!-- Optional: insert image of work in progress here -->
+    <!-- 
+    <figure class="essay-image reveal">
+      <img src="images/altman-process.jpg" alt="Sam Altman oil caricature in progress by Tony Parsons">
+      <figcaption>Sam Altman — oil on canvas, in progress, March 2025</figcaption>
+    </figure>
+    -->
+
+    <div class="essay-section reveal">
+      <h2>Why this cannot be <em>replicated</em></h2>
+      <p>
+        An AI image generator processes faces as pixel data. It has been trained 
+        on statistical relationships between features and can produce outputs 
+        that look face-like, portrait-like, even caricature-like. What it cannot 
+        do is engage with the perceptual system that makes a caricature resonate.
+      </p>
+      <p>
+        It has no access to what the fusiform face area actually cares about, 
+        because that information does not live in the pixels — it lives in the 
+        relationship between a specific face and the neural architecture of the 
+        people who know it. An AI has no model of what makes your father's face 
+        your father's face to you. It has only averages.
+      </p>
+      <p>
+        A caricature painted by a skilled artist is not a stylised photograph. 
+        It is a collaboration — between the painter's trained eye, the subject's 
+        unique face, and the perceptual machinery of everyone who will ever look 
+        at it. The painter is working in the same domain as the viewer's brain.
+      </p>
+      <p>An algorithm is not.</p>
+    </div>
+
+    <div class="pullquote reveal">
+      <p>
+        "If we stop learning these things — could we ever get them back?"
+      </p>
+    </div>
+
+    <div class="essay-section reveal">
+      <h2>The work</h2>
+      <p>
+        Each commission begins with a period of sustained looking — at 
+        photographs, at video where possible, at the face in motion and at rest. 
+        I am looking for the signal: the features that distinguish this face 
+        from every other face, the proportions that the brain of someone who 
+        knows this person will immediately recognise as true.
+      </p>
+      <p>
+        The painting takes as long as it takes. I do not work to speed. 
+        I work to the point where the face on the canvas is more recognisable, 
+        to the people who matter, than any photograph you could take.
+      </p>
+      <p>
+        If you have someone in mind — a retirement, a landmark birthday, a 
+        person who has been impossible to buy for — I would like to hear about it.
+      </p>
+    </div>
+
+    <div class="essay-cta reveal">
+      <p>I left caricature at the top. But the twenty thousand hours don't go anywhere.</p>
+      <a href="mailto:info@twistedportrait.co.uk" class="cta-link">Tell me about it</a>
+      <a href="/#works" class="cta-link secondary">See the work</a>
+    </div>
+
+  </article>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="wordmark">Twisted Portrait</span>
+    <p>Tony also paints landscapes &amp; seascapes worldwide as 
+      <a href="https://www.artistonthehill.co.uk" target="_blank">Artist on the Hill</a>
+    </p>
+    <p>&copy; 2025 Tony Parsons &nbsp;·&nbsp; 
+      <a href="/cdn-cgi/l/email-protection#650c0b030a2511120c16110001150a171117040c114b060a4b100e"><span class="__cf_email__" data-cfemail="c3aaada5ac83b7b4aab0b7a6a7b3acb1b7b1a2aab7eda0acedb6a8">[email&#160;protected]</span></a>
+    </p>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Reading progress bar
+    const progress = document.getElementById('progress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (scrollTop / docHeight * 100) + '%';
+    }, { passive: true });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e
