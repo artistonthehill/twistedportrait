@@ -414,12 +414,21 @@
     }
 
     .reveal {
-      opacity: 0;
-      transform: translateY(1.5rem);
+      opacity: 1;
+      transform: translateY(0);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: no-preference) {
+      .js-loaded .reveal {
+        opacity: 0;
+        transform: translateY(1.5rem);
+      }
+      .js-loaded .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 800px) {
@@ -620,7 +629,7 @@
 
     <div class="essay-cta reveal">
       <p>I left caricature at the top. But the twenty thousand hours don't go anywhere.</p>
-      <a href="mailto:info@twistedportrait.co.uk" class="cta-link">Tell me about it</a>
+      <a href="/cdn-cgi/l/email-protection#6f060109002f1b18061c1b0a0b1f001d1b1d0e061b410c00411a04" class="cta-link">Tell me about it</a>
       <a href="/#works" class="cta-link secondary">See the work</a>
     </div>
 
@@ -637,7 +646,10 @@
     </p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
+    // Mark JS as loaded so reveal animations activate
+    document.body.classList.add('js-loaded');
+
     // Reading progress bar
     const progress = document.getElementById('progress');
     window.addEventListener('scroll', () => {
@@ -648,4 +660,12 @@
 
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e
+      entries.forEach((el, i) => {
+        if (el.isIntersecting) {
+          setTimeout(() => el.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>

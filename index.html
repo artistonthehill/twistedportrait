@@ -748,14 +748,20 @@
     }
 
     .reveal {
-      opacity: 0;
-      transform: translateY(2rem);
+      opacity: 1;
+      transform: translateY(0);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    @media (prefers-reduced-motion: no-preference) {
+      .js-loaded .reveal {
+        opacity: 0;
+        transform: translateY(2rem);
+      }
+      .js-loaded .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* ─── RESPONSIVE ─── */
@@ -1058,7 +1064,7 @@
         <p>
           Those I consider.
         </p>
-        <a href="mailto:info@twistedportrait.co.uk" class="contact-link">Tell me about it</a>
+        <a href="/cdn-cgi/l/email-protection#9df4f3fbf2dde9eaf4eee9f8f9edf2efe9effcf4e9b3fef2b3e8f6" class="contact-link">Tell me about it</a>
       </div>
     </div>
   </section>
@@ -1070,13 +1076,15 @@
     <p>&copy; 2025 Tony Parsons &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection#771e1911183703001e040312130718050305161e0359141859021c"><span class="__cf_email__" data-cfemail="99f0f7fff6d9edeef0eaedfcfde9f6ebedebf8f0edb7faf6b7ecf2">[email&#160;protected]</span></a></p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
+    // Mark JS as loaded so reveal animations activate
+    document.body.classList.add('js-loaded');
+
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(el => {
         if (el.isIntersecting) {
           el.target.classList.add('visible');
-          // Stagger children if grid
           const children = el.target.parentElement.querySelectorAll('.reveal');
           children.forEach((child, i) => {
             child.style.transitionDelay = `${i * 0.12}s`;
@@ -1088,4 +1096,11 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     // Subtle hero image parallax
-   
+    const heroImg = document.querySelector('.hero-image img');
+    if (heroImg) {
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        heroImg.style.transform = `translateY(${scrolled * 0.25}px)`;
+      }, { passive: true });
+    }
+  </script>
