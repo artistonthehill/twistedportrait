@@ -700,11 +700,104 @@
       background: var(--gold);
       padding: 1rem 2.5rem;
       text-decoration: none;
-      transition: background 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s ease;
     }
 
-    .contact-link:hover {
-      background: var(--gold-pale);
+    .contact-link:hover { background: var(--gold-pale); }
+
+    /* ─── CONTACT MODAL ─── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(14,12,10,0.85);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: var(--warm-dark);
+      border: 1px solid var(--rule);
+      padding: 3rem;
+      max-width: 420px;
+      width: 90%;
+      position: relative;
+    }
+
+    .modal h3 {
+      font-family: 'IM Fell English', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal h3 em { font-style: italic; }
+
+    .modal p {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover { color: var(--white); }
+
+    .modal-option {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.25rem;
+      border: 1px solid var(--rule);
+      text-decoration: none;
+      margin-bottom: 0.75rem;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .modal-option:hover {
+      border-color: var(--gold);
+      background: rgba(184,146,42,0.06);
+    }
+
+    .modal-option:last-child { margin-bottom: 0; }
+
+    .modal-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .modal-option-text strong {
+      display: block;
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+
+    .modal-option-text span {
+      font-size: 0.95rem;
+      color: var(--text);
     }
 
     /* ─── FOOTER ─── */
@@ -944,11 +1037,11 @@
           </div>
         </div>
 
-        <!-- Work 5: Jan Op De Beeck at Caricon -->
+        <!-- Work 5: Lynton at Caricon -->
         <div class="work-item reveal">
-          <img src="images/jan-op-de-beeck.jpg" alt="Jan Op De Beeck — Oil caricature, Caricon convention" />
+          <img src="images/jan-op-de-beeck.jpg" alt="Lynton — Oil caricature, Caricon convention" />
           <div class="work-caption">
-            <h3>Jan Op De Beeck</h3>
+            <h3>Lynton</h3>
             <p>Oil on board &nbsp;·&nbsp; Caricon</p>
           </div>
         </div>
@@ -1064,21 +1157,54 @@
         <p>
           Those I consider.
         </p>
-        <a href="/cdn-cgi/l/email-protection#8ee7e0e8e1a8adb8bab5faf9e7fdfaebeafee1fcfafcefe7faa0ede1a0fbe5" class="contact-link">Tell me about it</a>
+        <button onclick="document.getElementById('contactModal').classList.add('open')" class="contact-link">Tell me about it</button>
       </div>
     </div>
   </section>
+
+  <!-- CONTACT MODAL -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal">
+      <button class="modal-close" onclick="document.getElementById('contactModal').classList.remove('open')">&times;</button>
+      <h3>Get in <em>touch</em></h3>
+      <p>I respond to all enquiries personally. WhatsApp is fastest.</p>
+      <a class="modal-option" href="https://wa.me/447880601709?text=Hello%20Tony%2C%20I%27d%20like%20to%20discuss%20a%20commission." target="_blank">
+        <span class="modal-icon">📱</span>
+        <span class="modal-option-text">
+          <strong>WhatsApp</strong>
+          <span>07880 601709 — usually same day</span>
+        </span>
+      </a>
+      <a class="modal-option" href="mailto:info@twistedportrait.co.uk">
+        <span class="modal-icon">✉</span>
+        <span class="modal-option-text">
+          <strong>Email</strong>
+          <span>info@twistedportrait.co.uk</span>
+        </span>
+      </a>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer>
     <span class="wordmark">Twisted Portrait</span>
     <p>Tony also paints landscapes &amp; seascapes worldwide as <a href="https://www.artistonthehill.co.uk" target="_blank">Artist on the Hill</a></p>
-    <p>&copy; 2025 Tony Parsons &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection#a9c0c7cfc68f8a9f9d92dddec0daddcccdd9c6dbdddbc8c0dd87cac687dcc2"><span class="__cf_email__" data-cfemail="c7aea9a1a887b3b0aeb4b3a2a3b7a8b5b3b5a6aeb3e9a4a8e9b2ac">[email&#160;protected]</span></a></p>
+    <p>&copy; 2025 Tony Parsons &nbsp;·&nbsp; info@twistedportrait.co.uk</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // Mark JS as loaded so reveal animations activate
     document.body.classList.add('js-loaded');
+
+    // Close modal when clicking overlay background
+    document.getElementById('contactModal').addEventListener('click', function(e) {
+      if (e.target === this) this.classList.remove('open');
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') document.getElementById('contactModal').classList.remove('open');
+    });
 
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
@@ -1095,4 +1221,15 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Subt
+    // Subtle hero image parallax
+    const heroImg = document.querySelector('.hero-image img');
+    if (heroImg) {
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        heroImg.style.transform = `translateY(${scrolled * 0.25}px)`;
+      }, { passive: true });
+    }
+  </script>
+
+</body>
+</html>
